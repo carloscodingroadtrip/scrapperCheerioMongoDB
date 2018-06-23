@@ -26,15 +26,15 @@ app.set('view engine', 'handlebars');
 
 // Connect to the Mongo DB
 // If deployed, use the deployed database. Otherwise use the local mongoHeadlines database
-var MONGODB_URI = process.env.MONGODB_URI || 'mongodb://localhost/articleScrapper';
+var MONGO_URI = process.env.MONGO_URI || 'mongodb://localhost/articleScrapper';
 
 // Set mongoose to leverage built in JavaScript ES6 Promises
 // Connect to the Mongo DB
 mongoose.Promise = Promise;
 //***************  MONGOOSE CONNECT ***********/
 mongoose
-	.connect(MONGODB_URI)
-	.then(() => console.log(`Mongoose connection is successful. ${MONGODB_URI}`))
+	.connect(MONGO_URI)
+	.then(() => console.log(`Mongoose connection is successful. ${MONGO_URI}`))
 	.catch(err => console.log(err));
 
 require('./routes/api-routes.js')(app);
